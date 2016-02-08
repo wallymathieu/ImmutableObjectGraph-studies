@@ -1,0 +1,12 @@
+version: 1.0.{build}
+configuration: Release
+before_build:
+  - nuget restore immutable_object_graph-studies.sln
+build:
+  project: immutable_object_graph-studies.sln
+  verbosity: minimal
+  publish_nuget: false
+nuget:
+  account_feed: false
+  project_feed: false
+  disable_publish_on_pr: true
