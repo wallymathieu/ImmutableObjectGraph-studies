@@ -14,13 +14,14 @@ build :build do |msb, args|
 end
 
 desc "Install missing NuGet packages."
-task :restore do
-    NugetHelper::exec("restore #{$sln} -source http://www.nuget.org/api/v2/")
+nugets_restore :restore do |p|
+    p.out = 'packages'
+    p.nuget_gem_exe
 end
 
 desc "test using console"
 test_runner :test => [:build] do |runner|
-  runner.exe = NugetHelper::nunit_86_path
+  runner.exe = NugetHelper::nunit_path
   d = File.dirname(__FILE__)
   files = [File.join(d,"Tests","bin","Debug","Tests.dll")]
   runner.files = files 
