@@ -5,16 +5,22 @@
     <AssemblyTitle>Core</AssemblyTitle>
     <Product>Core</Product>
     <Copyright>Copyright ©  2015</Copyright>
+    <CodeGenerationRoslynVersion>0.6.1</CodeGenerationRoslynVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ImmutableObjectGraph" Version="1.2.19-beta" />
-    <PackageReference Include="ImmutableObjectGraph.Generation" Version="1.2.19-beta" />
+    <PackageReference Include="CodeGeneration.Roslyn.Attributes" PrivateAssets="all" Version="$(CodeGenerationRoslynVersion)" />
+    <PackageReference Include="CodeGeneration.Roslyn.BuildTime" PrivateAssets="all" Version="$(CodeGenerationRoslynVersion)" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" PrivateAssets="all" Version="3.1.0" />
+    <PackageReference Include="CodeGeneration.Roslyn" PrivateAssets="all" Version="$(CodeGenerationRoslynVersion)"  />
+    <PackageReference Include="CodeGeneration.Roslyn.Engine" PrivateAssets="all" Version="$(CodeGenerationRoslynVersion)"  />
+    <PackageReference Include="ImmutableObjectGraph" Version="1.2.19-beta" PrivateAssets="all"/>
+    <PackageReference Include="ImmutableObjectGraph.Generation" Version="1.2.19-beta" PrivateAssets="all"/>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="protobuf-net" Version="2.4.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-codegen" />
+    <DotNetCliToolReference Include="dotnet-codegen" Version="$(CodeGenerationRoslynVersion)" />
   </ItemGroup>
 
   <ItemGroup>
