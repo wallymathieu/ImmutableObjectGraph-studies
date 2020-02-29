@@ -1,0 +1,3 @@
+[submodule "ImmutableObjectGraph"]
+	path = ImmutableObjectGraph
+	url = https://github.com/AArnott/ImmutableObjectGraph.git

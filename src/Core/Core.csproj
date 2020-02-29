@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>SomeBasicFileStoreApp.Core</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>Core</AssemblyTitle>
+    <Product>Core</Product>
+    <Copyright>Copyright ©  2015</Copyright>
+ </PropertyGroup>
+   <ItemGroup>
+  <GeneratorAssemblySearchPaths Include="..\..\ImmutableObjectGraph\bin\ImmutableObjectGraph.Generation\$(Configuration)\net461">
+      <Visible>false</Visible>
+    </GeneratorAssemblySearchPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-codegen" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ImmutableObjectGraph\src\ImmutableObjectGraph.Generation.Attributes\ImmutableObjectGraph.Generation.Attributes.csproj" />
+    <ProjectReference Include="..\..\ImmutableObjectGraph\src\ImmutableObjectGraph.Generation\ImmutableObjectGraph.Generation.csproj" />
+    <ProjectReference Include="..\..\ImmutableObjectGraph\src\ImmutableObjectGraph\ImmutableObjectGraph.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="protobuf-net" Version="2.4.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="dotnet-codegen" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Domain\Customer.cs">
+      <Generator>MSBuild:GenerateCodeFromAttributes</Generator>
+    </Compile>
+    <Compile Update="Domain\Order.cs">
+      <Generator>MSBuild:GenerateCodeFromAttributes</Generator>
+    </Compile>
+    <Compile Update="Domain\Product.cs">
+      <Generator>MSBuild:GenerateCodeFromAttributes</Generator>
+    </Compile>
+  </ItemGroup>
+</Project>

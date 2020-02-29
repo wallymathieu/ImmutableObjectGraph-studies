@@ -1,11 +1,16 @@
+image: Visual Studio 2019
 version: 1.0.{build}
 configuration: Release
 before_build:
-  - nuget restore immutable_object_graph-studies.sln
-build:
-  project: immutable_object_graph-studies.sln
-  verbosity: minimal
-  publish_nuget: false
+  - git submodule update --init --recursive
+  - dotnet restore .\ImmutableObjectGraph\src\
+  - dotnet build .\ImmutableObjectGraph\src\
+  - dotnet restore immutable_object_graph-studies.sln
+build_script:
+  - dotnet build ./immutable_object_graph-studies.sln
+  - dotnet test ./test/Tests
+test: off
+
 nuget:
   account_feed: false
   project_feed: false
