@@ -16,10 +16,5 @@ namespace SomeBasicFileStoreApp.Core.Commands
         [ProtoMember(4)]
         public virtual DateTime OrderDate { get; private set; }
        
-        public override void Handle(IRepository _repository)
-        {
-            var command = this;
-            _repository.Save(Order.Create(command.Id, command.Customer, command.OrderDate, ImmutableList<Product>.Empty, command.Version));
-        }
     }
 }
