@@ -3,6 +3,8 @@ version: 1.0.{build}
 configuration: Release
 before_build:
   - git submodule update --init --recursive
+  - dotnet restore .\ImmutableObjectGraph\src\
+  - dotnet build .\ImmutableObjectGraph\src\
   - nuget restore immutable_object_graph-studies.sln
 build:
   project: immutable_object_graph-studies.sln
