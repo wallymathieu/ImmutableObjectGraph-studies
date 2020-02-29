@@ -2,8 +2,7 @@ using NUnit.Framework;
 using SomeBasicFileStoreApp.Core;
 using System.Linq;
 using SomeBasicFileStoreApp.Core.Commands;
-using With.Collections;
-using With.Destructure;
+using WallyMathieu.Collections;
 
 namespace SomeBasicFileStoreApp.Tests
 {
@@ -13,7 +12,7 @@ namespace SomeBasicFileStoreApp.Tests
     {
         private Command[][] _batches;
         private Command[] _commandsSent;
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void TestFixtureSetUp()
         {
             var container = new ObjectContainer();
@@ -22,7 +21,7 @@ namespace SomeBasicFileStoreApp.Tests
             var handlers = container.GetAllHandlers();
             foreach (var command in _commandsSent)
             {
-                foreach (var handler in handlers.Where(h=>h.CanHandle(command.GetType())))
+                foreach (dynamic handler in handlers.Where(h=>h.CanHandle(command.GetType())))
                 {
                     handler.Handle(command);
                 }
@@ -41,11 +40,12 @@ namespace SomeBasicFileStoreApp.Tests
         [Test]
         public void Order()
         {
-            _batches.SelectMany(b => b).Stitch((last, current) =>
+            _batches.SelectMany(b => b).Pairwise((last, current) =>
                 {
-                    Assert.That(current.SequenceNumber, 
+                    Assert.That(current.SequenceNumber,
                         Is.GreaterThan(last.SequenceNumber));
-                });
+                    return 1;
+                }).ToArray();
             //Console.WriteLine(string.Join(", ",
             //    _batches.Select(b => "["+string.Join(", ", b.Select(a => a.SequenceNumber)) +"]" )));
         }

@@ -1,10 +1,6 @@
-﻿using System.IO;
-using System.Xml.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SomeBasicFileStoreApp.Core;
 using System.Linq;
-using System;
-using System.Collections.Generic;
 namespace SomeBasicFileStoreApp.Tests
 {
     [TestFixture]
@@ -31,9 +27,9 @@ namespace SomeBasicFileStoreApp.Tests
         [Test]
         public void OrderHasACustomer()
         {
-            Assert.IsNotNullOrEmpty(_repository.GetTheCustomerOrder(1).Firstname);
+            Assert.False(string.IsNullOrEmpty(_repository.GetTheCustomerOrder(1).Firstname));
         }
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void TestFixtureSetup()
         {
             _container = new ObjectContainer();
@@ -43,13 +39,13 @@ namespace SomeBasicFileStoreApp.Tests
             var handlers = _container.GetAllHandlers();
             foreach (var command in commands)
             {
-                foreach (var handler in handlers.Where(h => h.CanHandle(command.GetType())))
+                foreach (dynamic handler in handlers.Where(h => h.CanHandle(command.GetType())))
                 {
                     handler.Handle(command);
                 }
             }
         }
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void TestFixtureTearDown()
         {
             _container.Dispose();

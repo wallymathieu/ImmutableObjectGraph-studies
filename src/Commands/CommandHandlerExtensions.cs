@@ -6,12 +6,6 @@ namespace SomeBasicFileStoreApp.Core
 {
     public static class CommandHandlerExtensions
     {
-        public static void Handle(this ICommandHandler self, dynamic command)
-        {
-            dynamic handler = self;
-            handler.Handle(command);
-        }
-
         public static bool CanHandle(this ICommandHandler self, Type command)
         {
             var expectedCommandTypes = GetCommandTypes(self);

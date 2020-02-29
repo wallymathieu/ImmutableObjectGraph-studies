@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Immutable;
 using System.Diagnostics;
-
+using System.Collections.Generic;
 namespace SomeBasicFileStoreApp.Core
 {
     [GenerateImmutable(DefineWithMethodsPerProperty = true, GenerateBuilder = true)]
@@ -15,7 +15,7 @@ namespace SomeBasicFileStoreApp.Core
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         readonly DateTime orderDate;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        readonly ImmutableList<Product> products;
+        readonly IEnumerable<Product> products;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         readonly int version;
     }

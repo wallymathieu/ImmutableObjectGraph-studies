@@ -4,6 +4,7 @@ using System.Linq;
 using With;
 using SomeBasicFileStoreApp.Core.Infrastructure.ProtoBuf;
 using System.Collections.Generic;
+using WallyMathieu.Collections;
 
 namespace SomeBasicFileStoreApp.Tests.ProtoBuf
 {
