@@ -17,7 +17,7 @@ namespace Commands
         {
             var order = repository.GetOrder(command.OrderId);
             var products = new List<Product>(order.Products) { repository.GetProduct(command.ProductId) };
-            repository.Save(order.With(products: products));
+            repository.Save(order with { Products = products});
         }
     }
 }

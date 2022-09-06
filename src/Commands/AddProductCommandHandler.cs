@@ -14,7 +14,7 @@ namespace Commands
 
         public void Handle(AddProductCommand command)
         {
-            repository.Save(Product.Create(command.Id, command.Cost, command.Name, command.Version));
+            repository.Save(new Product(command.Id, command.Cost, command.Name, command.Version));
         }
     }
 }
