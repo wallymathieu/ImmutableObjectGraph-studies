@@ -6,7 +6,7 @@
 
   <PropertyGroup>
     <RootNamespace>SomeBasicFileStoreApp.Commands</RootNamespace>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
 </Project>

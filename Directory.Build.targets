@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <CodeGenerationRoslynVersion>0.6.1</CodeGenerationRoslynVersion>
+    <CodeGenerationRoslynVersion>0.7.63</CodeGenerationRoslynVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Update="CodeGeneration.Roslyn.Attributes" Version="$(CodeGenerationRoslynVersion)" />
@@ -9,14 +9,16 @@
     <PackageReference Update="CodeGeneration.Roslyn.Engine" Version="$(CodeGenerationRoslynVersion)" />
     <PackageReference Update="Microsoft.Build" Version="14.3.0" />
     <PackageReference Update="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="3.1.0" />
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.2.0" />
-    <PackageReference Update="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.3.1" />
+    <PackageReference Update="System.Collections.Immutable" Version="6.0.0" />
     <PackageReference Update="System.Diagnostics.Contracts" Version="4.3.0" />
     <PackageReference Update="Validation" Version="2.4.22" />
     <PackageReference Update="xunit.runner.visualstudio" Version="2.4.1" />
     <PackageReference Update="xunit" Version="2.4.1" />
+    <PackageReference Update="protobuf-net" Version="3.1.17" />
+
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Update="dotnet-codegen" Version="$(CodeGenerationRoslynVersion)" />
+    <DotNetCliToolReference Update="dotnet-codegen" Version="0.7.5-alpha" />
   </ItemGroup>
 </Project>
