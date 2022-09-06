@@ -15,7 +15,7 @@ namespace Commands
 
         public void Handle(AddOrderCommand command)
         {
-            repository.Save(Order.Create(command.Id, command.Customer, command.OrderDate, ImmutableList<Product>.Empty, command.Version));
+            repository.Save(new Order(command.Id, command.Customer, command.OrderDate, ImmutableList<Product>.Empty, command.Version));
         }
     }
 }
