@@ -18,7 +18,6 @@
     <PackageReference Update="protobuf-net" Version="3.1.17" />
     <PackageReference Update="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Update="WallyMathieu.Collections" Version="1.2.0-beta-1" />
-    <PackageReference Update="With" Version="6.0.0" />
     <PackageReference Update="nunit" Version="3.13.3" />
     <PackageReference Update="NUnit3TestAdapter" Version="4.2.1" />
   </ItemGroup>

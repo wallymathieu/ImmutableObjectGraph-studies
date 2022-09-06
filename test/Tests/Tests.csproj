@@ -13,7 +13,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="protobuf-net" />
     <PackageReference Include="WallyMathieu.Collections" />
-    <PackageReference Include="With" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Data.DataSetExtensions" />
